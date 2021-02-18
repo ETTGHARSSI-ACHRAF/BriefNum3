@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/bc3854343b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="contact.css">
+    <title>contact</title>
+    <script src="contact.js" type="text/javascript"></script>
+</head>
+<body>
+    
+    <header>
+        <img src="image/logo.png" alt="logo">
+        <img src="image/bars-solid.png" class="iconenav" alt="barssolid" onclick="nav()">
+        <ul id="navcontenu" class=" " vue="">
+            <li ><a href="index.html" >Accueil</a> </li>
+            <li><a href="Gallerie.html">Gallerie</a></li>
+            <li><a href="reservation.html">Réservation</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+    </header> 
+    <main>
+        <form>
+            <div class="input">
+                <div class="nom ligninpute">
+                    <input type="text" id="nom" placeholder="Nom">
+                    <br><label id="erreurnom"></label>
+                </div>
+                    
+                <div class="prenom ligninpute">
+                    <input type="text" id="prenom" placeholder="Prenom">
+                    <br><label id="erreurprenom"></label>
+                </div>
+                   
+                <div class="email ligninpute">
+                    <input type="email" id="email" placeholder="Email">
+                    <br><label id="erreuremail"></label>
+                </div>
+                    <div class="sujet ligninpute">
+                        <input type="text" id="sujet" placeholder="Sujet">
+                    <br><label id="erreursujet"hhh></label>
+                    </div>
+            </div>
+                    
+
+                        
+
+            <div class="message">
+                <label class="lastshild">Message</label>
+            <textarea  cols="30" rows="10" id="message"></textarea>
+            <br><label id="erreurmessage"></label>
+            </div>
+            <input type="button" value="Envoyer" class="btn" onclick="valider()">
+        </form>    
+    </main>
+    <footer>
+        <div class="media footer">
+            <img src="image/facebook-square-brands.png" alt="facebook">
+            <img src="image/instagram-square-brands.png" alt="instagram">
+            <h5>Achraf ETTGHARSSI</h5>
+        </div>
+        <div class="mail footer">
+            <img src="image/envelope-solid.png" alt="email">
+            <h5>achraf.ettgharssi1997@gmail.com</h5>
+        </div>
+        <div class="phone footer">
+            <img src="image/phone-square-alt-solid.png" alt="phone">
+            <h5>+2126 65 28 88 07</h5>
+        </div>   
+    </footer>
+</body>
+<script>
+    function nav(){
+        var nav = document.getElementById("navcontenu");
+        
+        if(nav.getAttribute("vue")=="active")
+        {
+            document.getElementById("navcontenu").classList.remove("menu");
+            nav.setAttribute("vue","");
+        }else
+        {
+            nav.setAttribute("vue","active");
+            document.getElementById("navcontenu").classList.add("menu");
+            
+        }    
+    }
+</script>
+</html>

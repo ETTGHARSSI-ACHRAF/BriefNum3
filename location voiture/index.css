@@ -1,0 +1,22 @@
+main{
+    text-align: center;
+}
+
+main h1{
+    text-align: center;
+    margin-top: 90px;
+    color: #B3110F;
+    font-family: 'Montserrat', sans-serif;
+}
+main span{
+    color: black;
+}
+main img{
+    width: 80%;
+}
+main p{
+    margin-left: 15%;
+    width: 70%;
+    font-weight: 500;
+    padding-bottom: 20px;
+}

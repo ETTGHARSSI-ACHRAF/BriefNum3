@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Accueil</title>
+</head>
+<body>
+    <header>
+        <img src="image/logo.png" alt="logo">
+        <img src="image/bars-solid.png" class="iconenav" alt="barssolid" onclick="nav()">
+        <ul id="navcontenu" class=" " vue="">
+            <li ><a href="index.html" class="active">Accueil</a> </li>
+            <li><a href="Gallerie.html">Gallerie</a></li>
+            <li><a href="reservation.html">Réservation</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </header> 
+    <main>
+        <h1><span>AUTO</span>ACHRAF</h1>
+        <img src="image/Used-Car-Page.png" alt="all">
+        <p>consectetur adipiscing elit, sed do eiusmod tempor incididunt
+             ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex 
+              ea commodo consequat. Duis aute irure dolor in reprehenderit
+               in voluptate velit esse cillum dolore consectetur adipiscing 
+               elit, sed do eiusmod tempor incididunt ut labore et dolore magna 
+        </p>
+    </main>
+    <footer>
+    <div class="media footer">
+        <img src="image/facebook-square-brands.png" alt="facebook">
+        <img src="image/instagram-square-brands.png" alt="instagram">
+        <h5>Achraf ETTGHARSSI</h5>
+    </div>
+    <div class="mail footer">
+        <img src="image/envelope-solid.png" alt="email">
+        <h5>achraf.ettgharssi1997@gmail.com</h5>
+    </div>
+    <div class="phone footer">
+        <img src="image/phone-square-alt-solid.png" alt="phone">
+        <h5>+2126 65 28 88 07</h5>
+    </div>
+    </footer>
+</body>
+<script>
+    function nav(){
+        var nav = document.getElementById("navcontenu");
+        
+        if(nav.getAttribute("vue")=="active")
+        {
+            document.getElementById("navcontenu").classList.remove("menu");
+            nav.setAttribute("vue","");
+        }else
+        {
+            nav.setAttribute("vue","active");
+            document.getElementById("navcontenu").classList.add("menu");
+            
+        }
+        
+        
+        
+    }
+</script>
+</html>

@@ -1,0 +1,41 @@
+main img{
+    width:340px;
+    height:292px;
+    border-radius: 10px;
+}
+ h3{
+    color: #B3110F;
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 20px;
+}
+.ligne1,.ligne2{
+    justify-content: center;
+    display: flex;
+    margin-bottom: 20px;
+    justify-content: space-around;
+}
+
+@media screen and (max-width:1100px){
+    main img{
+        width:240px;
+        height:192px;
+        margin: 10px;
+    }
+
+  
+    .imagesMoto {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+        margin-bottom: -20px;
+      }
+    
+      .slide {
+        display: inline-block;
+      }
+      ::-webkit-scrollbar {
+        width: 0px;
+        background: transparent;
+    }
+}

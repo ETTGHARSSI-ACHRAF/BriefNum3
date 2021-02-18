@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="reservation.css">
+    <script src="contact.js" type="text/javascript"></script>
+    <title>reservation</title>
+</head>
+<body>
+    <header>
+        <img src="image/logo.png" alt="logo">
+        <img src="image/bars-solid.png" class="iconenav" alt="barssolid" onclick="nav()">
+        <ul id="navcontenu" class=" " vue="">
+            <li ><a href="index.html" >Accueil</a> </li>
+            <li><a href="Gallerie.html">Gallerie</a></li>
+            <li><a href="reservation.html" class="active">Réservation</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </header>
+    <main>
+        <div class="selection">
+            <div class="typeVehicule">
+                <h2>type du véhicule</h2>
+                <div class="imageVehicule">
+
+                    <img src="image/moto.png" alt="moto" id="moto" onclick="option(this)">
+                    <img src="image/compact.png" alt="compact" id="compact" onclick="option(this)">
+                    <img src="image/citadin.png" alt="citadin" id="citadin" onclick="option(this)">
+                    <img src="image/utilitaire.png" alt="utilitaire" id="utilitaire" onclick="option(this)">
+                    <img src="image/sedanberlin.png" alt="sedanberlin" id="sedanberlin" onclick="option(this)">
+                    <img src="image/engin de chantier.png" alt="engin" id="engin" onclick="option(this)">
+                    <img src="image/camion.png" alt="camion" id="camion" onclick="option(this)">
+                </div>
+            </div>
+            <div class="type du carburant">
+                <h2>type du carburant</h2>
+                <div class="radios">
+                    <div class="flex" id="essencezone">
+                        <input type="radio" name="radioc" id="essence" />
+                        <label for="essence">essence</label>
+                    </div>
+                    <div class="flex" id="dieselzone">
+                        <input type="radio" name="radioc" id="diesel" />
+                        <label for="diesel">diesel</label>
+                    </div>
+                    <div class="flex" id="electriquezone">
+                        <input type="radio" name="radioc" id="electrique" />
+                        <label for="electrique">electrique</label>
+                    </div>
+                    <div class="flex" id="hybridezone">
+                        <input type="radio" name="radioc" id="hybride" />
+                        <label for="hybride">hybride</label>
+                    </div>
+                </div>
+            </div>
+            <div class="type de boite a vitesse" id="boiteVitesse">
+                    <h2>type de boite à vitesse</h2>
+                    <div class="radios">
+                        <div class="flex" id="manuelle">
+                            <input type="radio" name="radio" id="radio1" />
+                            <label for="radio1">manuelle</label>
+                        </div>
+                        <div class="flex" id="automatique">
+                            <input type="radio" name="radio" id="radio2" />
+                            <label for="radio2">automatique</label>
+                        </div>
+                    </div>
+            </div>
+                    <div class="durée de réservation">
+                        <h2>durée de réservation</h2>
+                        <div class="radios">
+                            <div class="flex">
+                                <label for="jour">(en jours) : </label>
+                                <input type="text"  id="jour"/>
+
+                            </div>
+                        </div>
+                        <input type="button" value="Estimation" id="btnestimation" class="btn" onclick="estimation()">
+            </div>
+            </div>
+        </div>
+        <div class="facture" id="facture">
+            <h4>Facture</h4>
+            <div class="devi">
+                <div class="ligne">
+                    <label class="c1" id="typeVehicule">type du véhicule : </label>
+                    <label id="typeCarburant">type du carburant : </label>
+                </div>
+                <div class="ligne">
+                    <label id="labelvitesse">type de boite à vitesse : </label>
+                    <label id="dureReservation" >durée de réservation: </label>
+                </div>
+                <div class="ligne">
+                    <label id="totale">Le prix a payer : </label>
+                </div>
+                <div class="ligne">
+                    <input type="button" value="Reserver" class="btn2" onclick="">
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+    <div class="media footer">
+        <img src="image/facebook-square-brands.png" alt="facebook">
+        <img src="image/instagram-square-brands.png" alt="instagram">
+        <h5>Achraf ETTGHARSSI</h5>
+    </div>
+    <div class="mail footer">
+        <img src="image/envelope-solid.png" alt="email">
+        <h5>achraf.ettgharssi1997@gmail.com</h5>
+    </div>
+    <div class="phone footer">
+        <img src="image/phone-square-alt-solid.png" alt="phone">
+        <h5>+2126 65 28 88 07</h5>
+    </div>
+    </footer>
+</body>
+<script>
+    var nom="";
+    function option(elm){
+        var boiteVitesse=document.getElementById("boiteVitesse");
+        var dieselzone = document.getElementById("dieselzone");
+        var hybridezone = document.getElementById("hybridezone");
+        var electriquezone = document.getElementById("electriquezone");
+        var essencezone = document.getElementById("essencezone");
+        var boitmanuelle=document.getElementById("manuelle");
+        var boitautomatique=document.getElementById("automatique");
+        // console.log(e);
+        // console.log(elm.parentNode.childNodes)
+        for (let index = 0; index < elm.parentNode.childNodes.length; index++) {
+            const element = elm.parentNode.childNodes[index];
+            if(element.style) {
+                element.style.filter = "drop-shadow(5px 5px 3px grey)";
+            }
+            // console.log(element.style);
+
+        };
+        elm.style.filter = "drop-shadow(2px 2px 5px red)";
+        if(elm.id=="moto"){
+            nom="moto";
+            console.log(nom);
+            boiteVitesse.style.display='none';
+            dieselzone.style.display='none';
+            hybridezone.style.display='none';
+            electriquezone.style.display='block';
+            essencezone.style.display='block';  
+        }
+        else if(elm.id=="compact"){
+            nom="compact";
+            console.log(nom);
+            boiteVitesse.style.display='block';
+            boitautomatique.style.display='none';
+            boitmanuelle.style.display='block'
+            dieselzone.style.display='block';
+            hybridezone.style.display='block';
+            electriquezone.style.display='none';
+            essencezone.style.display='block';
+        }
+        else if(elm.id=="citadin"){
+            nom="citadin";
+            console.log(nom);
+            boiteVitesse.style.display='block';
+            boitautomatique.style.display='none';
+            boitmanuelle.style.display='block'
+            dieselzone.style.display='block';
+            hybridezone.style.display='block';
+            electriquezone.style.display='block';
+            essencezone.style.display='block';
+        }
+        else if(elm.id=="utilitaire"){
+            nom="utilitaire";
+            console.log(nom);
+            boiteVitesse.style.display='block';
+            boitautomatique.style.display='none';
+            boitmanuelle.style.display='block'
+            dieselzone.style.display='block';
+            hybridezone.style.display='none';
+            electriquezone.style.display='none';
+            essencezone.style.display='none';
+        }
+        else if(elm.id=="sedanberlin"){
+            nom="sedanberlin";
+            console.log(nom);
+            boiteVitesse.style.display='block';
+            boitautomatique.style.display='block';
+            boitmanuelle.style.display='none'
+            dieselzone.style.display='block'; 
+            hybridezone.style.display='block';
+            electriquezone.style.display='none';
+            essencezone.style.display='block';
+        }
+        else if(elm.id=="engin"){
+            nom="engin";
+            console.log(nom);
+            boiteVitesse.style.display='block';
+            boitautomatique.style.display='none';
+            boitmanuelle.style.display='block'
+            dieselzone.style.display='block'; 
+            hybridezone.style.display='none';
+            electriquezone.style.display='none';
+            essencezone.style.display='block';
+        }
+        else if(elm.id=="camion"){
+            nom="camion";
+            console.log(nom);
+            boiteVitesse.style.display='block';
+            boitautomatique.style.display='block';
+            boitmanuelle.style.display='none';
+            dieselzone.style.display='block'; 
+            hybridezone.style.display='none';
+            electriquezone.style.display='none';
+            essencezone.style.display='none';
+        }
+    }
+function estimation(){
+    var vehicule= [{"nom":"moto", "prix":"100"},
+                    {"nom":"compact","prix":"140"},
+                    {"nom":"citadin","prix":"120"},
+                    {"nom":"utilitaire","prix":"160"},
+                    {"nom":"sedanberlin","prix":"200"},
+                    {"nom":"engin","prix":"9000"},
+                    {"nom":"camion","prix":"2500"}]
+    
+        var btnestim=document.getElementById("btnestimation");
+      var duree = document.getElementById("jour").value;
+      var carburant=document.getElementsByName("radioc"); 
+    var boitvitese=document.getElementsByName("radio");
+      if(duree!=""&& carburant[0].checked==true || carburant[1].checked==true || carburant[2].checked==true || carburant[3].checked==true && boitvitese[0].checked==true && boitvitese[1].checked==true){
+        document.getElementById("dureReservation").innerHTML+=duree;
+      var payement;
+    
+    if(nom=="moto"){
+        
+        document.getElementById("labelvitesse").style.display='none';
+        document.getElementById("typeVehicule").innerHTML+=vehicule[0].nom;
+        if(carburant[0].checked==true || carburant[2].checked==true && duree!=""){
+            btnestim.style.disabled = false;
+        }
+        if(carburant[0].checked==true){
+            document.getElementById("typeCarburant").innerHTML+="essence";
+            payement=((parseFloat(vehicule[0].prix*0.14)+parseFloat(vehicule[0].prix))*duree);
+        }
+        else if(carburant[2].checked==true){
+            document.getElementById("typeCarburant").innerHTML+="electrique";   
+             payement=((parseFloat(vehicule[0].prix*0.05)+parseFloat(vehicule[0].prix))*duree);
+        }
+        
+    }
+    else if(nom=="compact"){
+        document.getElementById("labelvitesse").style.display='block';
+        document.getElementById("typeVehicule").innerHTML+=vehicule[1].nom;
+        
+        if(carburant[0].checked==true){
+            document.getElementById("typeCarburant").innerHTML+="essence";
+            payement=((parseFloat(vehicule[1].prix*0.14)+parseFloat(vehicule[1].prix))*duree);
+        }
+        else if(carburant[1].checked==true){
+            document.getElementById("typeCarburant").innerHTML+="diessel";   
+            payement=((parseFloat(vehicule[1].prix*0.21)+parseFloat(vehicule[1].prix))*duree);
+        }
+        else if(carburant[3].checked==true){
+            document.getElementById("typeCarburant").innerHTML+="diessel";   
+           payement=((parseFloat(vehicule[1].prix*0.21)+parseFloat(vehicule[1].prix))*duree);
+        }
+        if(boitvitese[0].checked==true){
+            document.getElementById("labelvitesse").innerHTML+="Manuelle" 
+        }
+    }
+    else if(nom=="citadin"){
+        document.getElementById("labelvitesse").style.display='block';
+        document.getElementById("typeVehicule").innerHTML+=vehicule[2].nom;
+        // calcule de carburant
+        if(carburant[0].checked==true){
+            document.getElementById("typeCarburant").innerHTML+="essence";
+            payement=((parseFloat(vehicule[2].prix*0.14)+parseFloat(vehicule[2].prix))*duree);
+        }
+        else if(carburant[1].checked==true){
+            document.getElementById("typeCarburant").innerHTML+="diessel";   
+            payement=((parseFloat(vehicule[2].prix*0.21)+parseFloat(vehicule[2].prix))*duree);
+        }
+        else if(carburant[2].checked==true){
+            document.getElementById("typeCarburant").innerHTML+="electrique";   
+             payement=((parseFloat(vehicule[2].prix*0.05)+parseFloat(vehicule[2].prix))*duree);
+        }
+        else if(carburant[3].checked==true){
+            document.getElementById("typeCarburant").innerHTML+="Hybride";   
+           payement=((parseFloat(vehicule[2].prix*0.09)+parseFloat(vehicule[2].prix))*duree);
+        }
+        //calcul boit vitesse
+        if(boitvitese[0].checked==true){
+            document.getElementById("labelvitesse").innerHTML+="Manuelle" 
+        }
+    }
+    else if(nom=="utilitaire"){
+        document.getElementById("labelvitesse").style.display='block';
+        document.getElementById("typeVehicule").innerHTML+=vehicule[3].nom;
+        // calcule de carburant
+         if(carburant[1].checked==true){
+            document.getElementById("typeCarburant").innerHTML+="diessel";   
+            payement=((parseFloat(vehicule[3].prix*0.21)+parseFloat(vehicule[3].prix))*duree);
+        }
+        //calcul boit vitesse
+        if(boitvitese[0].checked==true){
+            document.getElementById("labelvitesse").innerHTML+="Manuelle" 
+        }
+    }
+    else if(nom=="sedanberlin"){
+        document.getElementById("labelvitesse").style.display='block';
+        document.getElementById("typeVehicule").innerHTML+=vehicule[4].nom;
+        // calcule de carburant
+        if(carburant[0].checked==true){
+            document.getElementById("typeCarburant").innerHTML+="essence";
+            payement=((parseFloat(vehicule[4].prix*0.14)+parseFloat(vehicule[4].prix))*duree);
+        }
+        else if(carburant[1].checked==true){
+            document.getElementById("typeCarburant").innerHTML+="diessel";   
+            payement=((parseFloat(vehicule[4].prix*0.21)+parseFloat(vehicule[4].prix))*duree);
+        }
+        else if(carburant[3].checked==true){
+            document.getElementById("typeCarburant").innerHTML+="Hybride";   
+           payement=((parseFloat(vehicule[4].prix*0.09)+parseFloat(vehicule[4].prix))*duree);
+        }
+        //calcul boit vitesse
+        if(boitvitese[1].checked==true){
+            document.getElementById("labelvitesse").innerHTML+="automatique";
+            payement+=payement+parseFloat(vehicule[4].prix*0.19);
+        }
+    }
+    else if(nom=="engin"){
+        document.getElementById("labelvitesse").style.display='block';
+        document.getElementById("typeVehicule").innerHTML+=vehicule[5].nom;
+        // calcule de carburant
+        if(carburant[0].checked==true){
+            document.getElementById("typeCarburant").innerHTML+="essence";
+            payement=((parseFloat(vehicule[5].prix*0.14)+parseFloat(vehicule[5].prix))*duree);
+        }
+        else if(carburant[1].checked==true){
+            document.getElementById("typeCarburant").innerHTML+="diessel";   
+            payement=((parseFloat(vehicule[5].prix*0.21)+parseFloat(vehicule[5].prix))*duree);
+        }
+        //calcul boit vitesse
+        if(boitvitese[0].checked==true){
+            document.getElementById("labelvitesse").innerHTML+="Manuelle";
+        }
+    }
+    else if(nom=="camion"){
+        document.getElementById("labelvitesse").style.display='block';
+        document.getElementById("typeVehicule").innerHTML+=vehicule[5].nom;
+        // calcule de carburant
+         if(carburant[1].checked==true){
+            document.getElementById("typeCarburant").innerHTML+="diessel";   
+            payement=((parseFloat(vehicule[6].prix*0.21)+parseFloat(vehicule[6].prix))*duree);
+        }
+        //calcul boit vitesse
+        if(boitvitese[1].checked==true){
+            document.getElementById("labelvitesse").innerHTML+="automatique";
+            payement+=payement+parseFloat(vehicule[6].prix*0.19);
+        }
+    }
+    document.getElementById("totale").innerHTML+=payement;
+      }else{
+          alert("tous les champs est obligatoire");
+      }
+      
+    //  var div =document.getElementById("facture");
+    // if(div.style.display=='none'){
+    //  div.style.display='block';
+    // }
+    // else{
+    //     div.style.display='none'
+    // } 
+}
+</script>
+</html>
+
+
