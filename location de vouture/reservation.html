@@ -228,17 +228,13 @@ function estimation(){
       var duree = document.getElementById("jour").value;
       var carburant=document.getElementsByName("radioc"); 
     var boitvitese=document.getElementsByName("radio");
-      if(duree!=""&& carburant[0].checked==true || carburant[1].checked==true || carburant[2].checked==true || carburant[3].checked==true && boitvitese[0].checked==true && boitvitese[1].checked==true){
+      if(duree!=""&& carburant[0].checked==true || carburant[1].checked==true || carburant[2].checked==true || carburant[3].checked==true && boitvitese[0].checked==true || boitvitese[1].checked==true){
         document.getElementById("dureReservation").innerHTML+=duree;
       var payement;
     
-    if(nom=="moto"){
-        
+    if(nom=="moto"){  
         document.getElementById("labelvitesse").style.display='none';
         document.getElementById("typeVehicule").innerHTML+=vehicule[0].nom;
-        if(carburant[0].checked==true || carburant[2].checked==true && duree!=""){
-            btnestim.style.disabled = false;
-        }
         if(carburant[0].checked==true){
             document.getElementById("typeCarburant").innerHTML+="essence";
             payement=((parseFloat(vehicule[0].prix*0.14)+parseFloat(vehicule[0].prix))*duree);
@@ -255,19 +251,18 @@ function estimation(){
         
         if(carburant[0].checked==true){
             document.getElementById("typeCarburant").innerHTML+="essence";
-            payement=((parseFloat(vehicule[1].prix*0.14)+parseFloat(vehicule[1].prix))*duree);
+            payement=parseFloat(vehicule[1].prix)+(parseFloat(vehicule[1].prix*0.14));
         }
         else if(carburant[1].checked==true){
             document.getElementById("typeCarburant").innerHTML+="diessel";   
-            payement=((parseFloat(vehicule[1].prix*0.21)+parseFloat(vehicule[1].prix))*duree);
+            payement=parseFloat(vehicule[1].prix)+(parseFloat(vehicule[1].prix*0.21));
         }
         else if(carburant[3].checked==true){
-            document.getElementById("typeCarburant").innerHTML+="diessel";   
-           payement=((parseFloat(vehicule[1].prix*0.21)+parseFloat(vehicule[1].prix))*duree);
+            document.getElementById("typeCarburant").innerHTML+="hybride";   
+           payement=parseFloat(vehicule[1].prix)+(parseFloat(vehicule[1].prix*0.09));
         }
-        if(boitvitese[0].checked==true){
             document.getElementById("labelvitesse").innerHTML+="Manuelle" 
-        }
+            payement=payement*duree;
     }
     else if(nom=="citadin"){
         document.getElementById("labelvitesse").style.display='block';
@@ -275,37 +270,31 @@ function estimation(){
         // calcule de carburant
         if(carburant[0].checked==true){
             document.getElementById("typeCarburant").innerHTML+="essence";
-            payement=((parseFloat(vehicule[2].prix*0.14)+parseFloat(vehicule[2].prix))*duree);
+            payement=((parseFloat(vehicule[2].prix*0.14))+parseFloat(vehicule[2].prix));
         }
         else if(carburant[1].checked==true){
             document.getElementById("typeCarburant").innerHTML+="diessel";   
-            payement=((parseFloat(vehicule[2].prix*0.21)+parseFloat(vehicule[2].prix))*duree);
+            payement=((parseFloat(vehicule[2].prix*0.21))+parseFloat(vehicule[2].prix));
         }
         else if(carburant[2].checked==true){
             document.getElementById("typeCarburant").innerHTML+="electrique";   
-             payement=((parseFloat(vehicule[2].prix*0.05)+parseFloat(vehicule[2].prix))*duree);
+            payement=((parseFloat(vehicule[2].prix*0.05))+parseFloat(vehicule[2].prix));
         }
         else if(carburant[3].checked==true){
-            document.getElementById("typeCarburant").innerHTML+="Hybride";   
-           payement=((parseFloat(vehicule[2].prix*0.09)+parseFloat(vehicule[2].prix))*duree);
+            document.getElementById("typeCarburant").innerHTML+="Hybride";  
+            payement=((parseFloat(vehicule[2].prix*0.09))+parseFloat(vehicule[2].prix)); 
         }
-        //calcul boit vitesse
-        if(boitvitese[0].checked==true){
-            document.getElementById("labelvitesse").innerHTML+="Manuelle" 
-        }
+            document.getElementById("labelvitesse").innerHTML+="Manuelle" ;
+            payement=payement*duree;
     }
     else if(nom=="utilitaire"){
         document.getElementById("labelvitesse").style.display='block';
         document.getElementById("typeVehicule").innerHTML+=vehicule[3].nom;
         // calcule de carburant
-         if(carburant[1].checked==true){
             document.getElementById("typeCarburant").innerHTML+="diessel";   
-            payement=((parseFloat(vehicule[3].prix*0.21)+parseFloat(vehicule[3].prix))*duree);
-        }
-        //calcul boit vitesse
-        if(boitvitese[0].checked==true){
-            document.getElementById("labelvitesse").innerHTML+="Manuelle" 
-        }
+            payement=((parseFloat(vehicule[3].prix*0.21))+parseFloat(vehicule[3].prix));
+            document.getElementById("labelvitesse").innerHTML+="Manuelle" ;
+            payement=payement*duree;
     }
     else if(nom=="sedanberlin"){
         document.getElementById("labelvitesse").style.display='block';
@@ -313,21 +302,18 @@ function estimation(){
         // calcule de carburant
         if(carburant[0].checked==true){
             document.getElementById("typeCarburant").innerHTML+="essence";
-            payement=((parseFloat(vehicule[4].prix*0.14)+parseFloat(vehicule[4].prix))*duree);
+            payement=((parseFloat(vehicule[4].prix*0.14))+parseFloat(vehicule[4].prix));
         }
         else if(carburant[1].checked==true){
             document.getElementById("typeCarburant").innerHTML+="diessel";   
-            payement=((parseFloat(vehicule[4].prix*0.21)+parseFloat(vehicule[4].prix))*duree);
+            payement=((parseFloat(vehicule[4].prix*0.21))+parseFloat(vehicule[4].prix));
         }
         else if(carburant[3].checked==true){
             document.getElementById("typeCarburant").innerHTML+="Hybride";   
-           payement=((parseFloat(vehicule[4].prix*0.09)+parseFloat(vehicule[4].prix))*duree);
+            payement=((parseFloat(vehicule[4].prix*0.09))+parseFloat(vehicule[4].prix));
         }
-        //calcul boit vitesse
-        if(boitvitese[1].checked==true){
             document.getElementById("labelvitesse").innerHTML+="automatique";
-            payement+=payement+parseFloat(vehicule[4].prix*0.19);
-        }
+            payement=(payement+parseFloat(vehicule[4].prix*0.19))*duree;
     }
     else if(nom=="engin"){
         document.getElementById("labelvitesse").style.display='block';
@@ -341,37 +327,22 @@ function estimation(){
             document.getElementById("typeCarburant").innerHTML+="diessel";   
             payement=((parseFloat(vehicule[5].prix*0.21)+parseFloat(vehicule[5].prix))*duree);
         }
-        //calcul boit vitesse
-        if(boitvitese[0].checked==true){
             document.getElementById("labelvitesse").innerHTML+="Manuelle";
-        }
+
     }
     else if(nom=="camion"){
         document.getElementById("labelvitesse").style.display='block';
-        document.getElementById("typeVehicule").innerHTML+=vehicule[5].nom;
+        document.getElementById("typeVehicule").innerHTML+=vehicule[6].nom;
         // calcule de carburant
-         if(carburant[1].checked==true){
             document.getElementById("typeCarburant").innerHTML+="diessel";   
-            payement=((parseFloat(vehicule[6].prix*0.21)+parseFloat(vehicule[6].prix))*duree);
-        }
-        //calcul boit vitesse
-        if(boitvitese[1].checked==true){
+            payement=(parseFloat(vehicule[6].prix*0.21))+parseFloat(vehicule[6].prix);
             document.getElementById("labelvitesse").innerHTML+="automatique";
-            payement+=payement+parseFloat(vehicule[6].prix*0.19);
-        }
+            payement=(payement+parseFloat(vehicule[6].prix*0.19))*duree;
     }
     document.getElementById("totale").innerHTML+=payement;
       }else{
           alert("tous les champs est obligatoire");
       }
-      
-    //  var div =document.getElementById("facture");
-    // if(div.style.display=='none'){
-    //  div.style.display='block';
-    // }
-    // else{
-    //     div.style.display='none'
-    // } 
 }
 function nav(){
         var nav = document.getElementById("navcontenu");
